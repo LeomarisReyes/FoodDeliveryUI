@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FoodDeliveryUI.Views.DeliveryPage">
+    <ContentPage.Content> 
+         <Grid RowDefinitions="*">
+           <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
+            <!-- Main Layout-->
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="30,15,0,0">
+                <!-- Main delivery-->
+                <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Source="HamburgerMenu"/>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ojek" TextColor="#fdc912"/>
+                            <Span Text=" Food" TextColor="#bf2103"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Grid.Row="0" Grid.Column="2" HorizontalOptions="End" Source="Profile" HeightRequest="60" WidthRequest="60" Margin="0,0,30,0"/>
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Delivery" TextColor="#bf2103" FontSize="35" FontAttributes="Bold" HorizontalTextAlignment="Start" Padding="5,30,0,0"/>
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="&#10;find your test without&#10;leaving the house." TextColor="#bf2103" FontSize="22" HorizontalTextAlignment="Start" Padding="5,0,0,0"/>
+                <SearchBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Placeholder="Search Food" BackgroundColor="Transparent" Margin="0,0,30,0"/>
+                <!-- Category-->
+                <Label Grid.Row="4" Grid.Column="0" Text="Category" FontAttributes="Bold" Padding="5,10,0,0" FontSize="25"/>
+                <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"
+                                    HorizontalScrollBarVisibility="Never" 
+                                    Margin="0,20"
+                                    ItemsSource="{Binding categories}"
+                                    VerticalOptions="StartAndExpand"
+                                    ItemsLayout="HorizontalList" 
+                                    HeightRequest="160"> 
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Margin="8,0"> 
+                                                <Frame HasShadow="False" CornerRadius="20" BackgroundColor="#fbc821" WidthRequest="75" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
+                                                    <Grid HorizontalOptions="Center" RowDefinitions="*,Auto">
+                                                       <Image Grid.Row="0" HorizontalOptions="Center" Source="{Binding Image}" Margin="0,20,0,10" WidthRequest="50"/>
+                                                       <Label Grid.Row="1" Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="End" HorizontalTextAlignment="Center" TextColor="#48423c" FontSize="15"/>
+                                                    </Grid> 
+                                                </Frame>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                <!--Popular Food Label-->
+                <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="Popular Food" FontAttributes="Bold" Padding="5,10,0,0" FontSize="25"/>
+                <!--Popular Food list-->
+                <CollectionView Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"
+                                    HorizontalScrollBarVisibility="Never"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="{OnPlatform Android='350', iOS='500'}"
+                                    ItemsSource="{Binding popularFood}"> 
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid ColumnDefinitions="Auto" Padding="0,20,30,0">
+                                                <Frame Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" HeightRequest="95" CornerRadius="20" Margin="5"> 
+                                                         <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+                                                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Title}" FontSize="20" FontAttributes="Bold"/>
+                                                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Type}" TextColor="Silver"/>
+                                                            <Button Grid.Row="2" Grid.Column="0" Text="+" FontAttributes="Bold" BackgroundColor="#c12b0d" HorizontalOptions="Start" TextColor="White" WidthRequest="28" HeightRequest="28" FontSize="9" CornerRadius="5" Margin="0,10,0,0"/>
+                                                            <Label Grid.Row="2" Grid.Column="0" Text="{Binding Price}" FontAttributes="Bold" VerticalOptions="Center" Padding="45,10,0,0"/>
+                                                         </Grid> 
+                                                 </Frame>
+                                                 <Image Grid.Column="1" HorizontalOptions="EndAndExpand" Source="{Binding Image}" HeightRequest="120" WidthRequest="120" Margin="0,-65,-25,0"/>
+                                             </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                 </CollectionView> 
+            </Grid>
+            </ScrollView>
+            <!-- Floating Button-->
+            <Frame Grid.Row="0" BackgroundColor="#fdc912" VerticalOptions="End" HorizontalOptions="End" CornerRadius="30" TranslationY="-30" TranslationX="-30">
+                     <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto" HorizontalOptions="CenterAndExpand">
+                        <Image Grid.Column="0" Source="Basket" HeightRequest="34" WidthRequest="34" VerticalOptions="Center" Aspect="Fill"/>
+                        <Button Grid.Column="1" Text="20" FontAttributes="Bold" FontSize="9" TextColor="Black" BackgroundColor="White" VerticalOptions="FillAndExpand" HeightRequest="34" WidthRequest="34" CornerRadius="17"/>
+                     </Grid>
+            </Frame>
+           </Grid>  
+    </ContentPage.Content>
+</ContentPage>

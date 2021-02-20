@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDeliveryUI.Views.MainPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.PrefersStatusBarHidden="True"
+             ios:Page.PreferredStatusBarUpdateAnimation="Fade"
+             BackgroundColor="White">
+    <ContentPage.Content> 
+           <!-- Main layout-->
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="CenterAndExpand" ColumnDefinitions="*,*" Padding="40,20,40,0">
+                 <!--Back button-->
+                <Button Grid.Row="0" Grid.Column="0" ImageSource="ArrowLeft" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#fee489" CornerRadius="15"/>
+                <!--Skip label-->
+                <Label Grid.Row="0" Grid.Column="1" Text="Skip" HorizontalTextAlignment="End" FontAttributes="Bold"/>
+                <!--Main imagen with background-->
+                <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="Background" Aspect="AspectFill"/>
+                <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="Food" HeightRequest="300" Aspect="AspectFill" VerticalOptions="Start"/>
+                 <!--Title-->
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ojek" TextColor="#fdc912"/>
+                            <Span Text=" Food" TextColor="#bf2103"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                 <!--Description-->
+                <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="order food and wait for home,&#10;easy and fast." Margin="0,20" HorizontalTextAlignment="Center" FontSize="20"/>
+                 <!--Rounded button-->
+                <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ImageSource="WhiteArrow"  HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#fdc912" HeightRequest="90" WidthRequest="90" CornerRadius="45" TranslationY="{OnPlatform Android='-20'}"/>
+            </Grid> 
+    </ContentPage.Content>
+</ContentPage>
